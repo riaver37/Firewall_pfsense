@@ -1,0 +1,37 @@
+Objetivo -> criar um firewall utilizandod o pfsense,  partindo do principio de restringir tudo e ir liberando aos poucos
+
+liberar porta 80 para acesso a internet, utilizando o protocolo http
+porta 8080  pesquisar 
+
+https://www.youtube.com/watch?v=UD5OhgDtJOg
+no video acima  "Pfsense + Snort : Detectando um DoS em sua Rede " mostra como se dfender de uma ataque DoS na rede interna, vou utilizar 
+criar um procediemtno para ataque da rede externa como detectar e bloquear
+
+Definindo uma Regra customizada
+alert tcp $HOME_NET any -> $HOME_NET any (flag: S; msg:"Manual rule DoS flood"; flow:established; detection_filter: track by_src, count 60, seconds 20;
+
+
+
+
+alert tcp $HOME_NET any -> $HOME_NET any (flag: S -> criando um alerta sobre o protocolo tcp de origem rede interna $HOME_NET para qualquer destino
+
+
+
+
+
+
+firewall, resumo de como fazer gerenciamento do github
+…or create a new repository on the command line
+echo "# Firewall_pfsense" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/riaver37/Firewall_pfsense.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/riaver37/Firewall_pfsense.git
+git branch -M main
+git push -u origin main
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.tivos
