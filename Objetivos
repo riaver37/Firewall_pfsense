@@ -8,12 +8,18 @@ no video acima  "Pfsense + Snort : Detectando um DoS em sua Rede " mostra como s
 criar um procediemtno para ataque da rede externa como detectar e bloquear
 
 Definindo uma Regra customizada
-alert tcp $HOME_NET any -> $HOME_NET any (flag: S; msg:"Manual rule DoS flood"; flow:established; detection_filter: track by_src, count 60, seconds 20;
+
+alert tcp $HOME_NET any -> $HOME_NET any (flags: S; msg:" Manual rule DoS flood"; flow:established; detection_filter: track by_src, count 60, seconds 10; sid:99901; rev:1;)
 
 
+alert tcp $HOME_NET any -> $HOME_NET any ; %criando um alerta sobre o protocolo tcp de origem rede interna $HOME_NET porta de orgiem qualquer uma 
+         com destino, -> , rede interna $HOME_NET qualquer porta
+alert tcp $EXTERNO any -> $HOME_NET any : % criando uma alerta origem externa usando qualquer porta com destino -> reder interna qualquer porta
 
 
-alert tcp $HOME_NET any -> $HOME_NET any (flag: S -> criando um alerta sobre o protocolo tcp de origem rede interna $HOME_NET para qualquer destino
+(flags: S; msg:" Manual rule DoS flood" % procurando pela flag S de sincronização coloca a mensagem "Manual rule .. poderia ser qualquer mensagem
+
+
 
 
 
